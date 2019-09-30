@@ -2,7 +2,7 @@
 
 Current prototype
 
-![Image of the project](https://i.imgur.com/LYCC2Sa.jpg)
+![Image of the project](https://i.imgur.com/CPexcqx.jpg)
 
 ## Basics
 This project aims to create a smarthome-system that can measure, control & show various useful information, such as temperature and important local events. The exact featureset is yet to determined. :)
