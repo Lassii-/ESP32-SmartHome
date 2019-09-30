@@ -23,7 +23,6 @@ String formattedTime;
 
 OneWire oneWire(23);
 DallasTemperature sensors(&oneWire);
-bool first = true;
 int8_t temperature;
 const char *weathertype;
 const char *owmwtype;
@@ -105,6 +104,7 @@ void loop() {
   formattedTime = timeClient.getFormattedTime();
   unsigned long currentMillis = millis();
   if (currentMillis - lastMeasurement > 60000) {
+    lcd.clear();
     temperature = getDallasTemperature();
     OWM = getOWMData();
     lastMeasurement = millis();
