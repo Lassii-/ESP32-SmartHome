@@ -25,7 +25,7 @@ I write the code in C++ and use ESP32 Arduino-framework as a base for functional
 + Time based on NTP
 
 ## Planned features
-+ More sensors, also possibly replacing the Dallas with more accurate Bosch that does humidity too
++ More sensors, also possibly replacing the Dallas with more accurate Bosch (BME680?) that does many things
 + Implement proper multithreaded code where different tasks (Sensor-polling, time, API-access etc) run separately and share data as necessary
 + Multipage system that redraws the LCD-screen with different information every XX seconds
 + Sending the data that's being collected from my apartment to my backend where it can then be accessed by a separate website with graphs and stuff
