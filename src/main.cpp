@@ -2,11 +2,12 @@
 #include <ArduinoJson.h>
 #include <DallasTemperature.h>
 #include <HTTPClient.h>
+#include <InfluxArduino.hpp>
 #include <LiquidCrystal_I2C.h>
 #include <NTPClient.h>
 #include <OneWire.h>
 #include <WiFi.h>
-#include <WiFiUdp.h>
+#include <WiFiClientSecure.h>
 #include <chars.h>
 #include <cmath>
 #include <creds.h>
@@ -18,6 +19,8 @@ const String key = owmapikey;
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
+
+InfluxArduino influx;
 
 String formattedTime;
 
@@ -94,6 +97,11 @@ void setup() {
     Serial.println("Connecting to wifi.");
   }
   Serial.println("Connected to to wifi.");
+  influx.configure(INFLUXDB_DATABASE, INFLUXDB_HOST);
+  influx.authorize(INFLUXDB_USER, INFLUXDB_PASS);
+  influx.addCertificate(cert);
+  Serial.print("Using HTTPS: ");
+  Serial.println(influx.isSecure());
   timeClient.begin();
   timeClient.setTimeOffset(10800);
 }
@@ -102,12 +110,23 @@ void loop() {
   while (!timeClient.update()) {
     timeClient.forceUpdate();
   }
+  Serial.print("Using HTTPS: ");
+  Serial.println(influx.isSecure());
   formattedTime = timeClient.getFormattedTime();
+  char tags[16];
+  char fields[128];
   unsigned long currentMillis = millis();
+
   if (currentMillis - lastMeasurement > 60000) {
     lcd.clear();
-    temperature = getDallasTemperature();
     OWM = getOWMData();
+    temperature = getDallasTemperature();
+    sprintf(tags, "sensor=ds18b20");
+    sprintf(fields, "value=%d", temperature);
+    influx.write("temperature", tags, fields);
+    sprintf(tags, "sensor=owm");
+    sprintf(fields, "value=%d", OWM.first);
+    influx.write("outside", tags, fields);
     lastMeasurement = millis();
   }
   drawLCD(temperature, formattedTime, OWM);
