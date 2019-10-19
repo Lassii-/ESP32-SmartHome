@@ -58,6 +58,7 @@ std::pair<int16_t, const char *> getOWMData() {
       return std::make_pair(owmtemp, owmwtype);
     } else {
       Serial.println("Error on HTTP request.");
+      return std::make_pair(-100, "NoWiFi");
     }
     http.end();
   }
