@@ -3,6 +3,7 @@
 Current prototype
 
 ![Image of the project](https://i.imgur.com/s7tQL1k.jpg)
+![Grafana-dashboard](https://i.imgur.com/X9gYN3r.png)
 
 ## Basics
 This project aims to create a smarthome-system that can measure, control & show various useful information, such as temperature and important local events. The exact featureset is yet to determined. :)
