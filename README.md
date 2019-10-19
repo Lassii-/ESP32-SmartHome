@@ -23,10 +23,9 @@ I write the code in C++ and use ESP32 Arduino-framework as a base for functional
 + Using WiFi to connect to Internet to access OpenWeatherMap via their API to get the weather of my city
 + Displaying all the useful data on the 1602 LCD
 + Time based on NTP
++ Sending the data over the Internet to Influxdb-database. I have a separate Grafana-instance that can show graphs of the data on a browser
 
 ## Planned features
-+ More sensors, also possibly replacing the Dallas with more accurate Bosch (BME680?) that does many things
++ Replace Dallas DS18B20 temperature sensor with a Bosch BME680 that is more accurate and does humidity, pressure & gas too
 + Implement proper multithreaded code where different tasks (Sensor-polling, time, API-access etc) run separately and share data as necessary
-+ Multipage system that redraws the LCD-screen with different information every XX seconds
-+ Sending the data that's being collected from my apartment to my backend where it can then be accessed by a separate website with graphs and stuff
 + More?
