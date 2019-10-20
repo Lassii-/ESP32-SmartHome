@@ -1,3 +1,3 @@
-[submodule "externals/smooth"]
-	path = externals/smooth
+[submodule "src/externals/smooth"]
+	path = src/externals/smooth
 	url = https://github.com/PerMalmberg/Smooth.git

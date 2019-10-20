@@ -1,1 +1,6 @@
+# Ignore local PlatformIO & VSCode files
 .pio
+.vscode
+
+# Ignore smooth-folder
+src/externals/smooth/*
