@@ -26,7 +26,7 @@ I write the code in C++ and use ESP32 Arduino-framework as a base for functional
 + Using WiFi to connect to Internet to access OpenWeatherMap via their API to get the weather of my city
 + Displaying all the useful data on the 1602 LCD
 + Time based on NTP
-+ Sending the data over the Internet to Influxdb-database. I have a separate Grafana-instance that can show graphs of the data on a browser
++ Sending the data over the Internet to [Influxdb](https://www.influxdata.com/)-database. I have a separate [Grafana](https://grafana.com/)-instance that can show graphs of the data on a browser
 
 ## Planned features
 + Replace Dallas DS18B20 temperature sensor with a Bosch BME680 that is more accurate and does humidity, pressure & gas too
