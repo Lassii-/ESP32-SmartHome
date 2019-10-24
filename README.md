@@ -12,6 +12,8 @@ This project aims to create a smarthome-system that can measure, control & show 
 
 ## Hardware
 Currently I use the following hardware-stuff to make this project tick. There's more stuff to be added later.
+
++ Bunch of dupont-wires & a prototyping board
 + [ESP32 microcontroller](http://esp32.net/)
 + [Dallas DS18B20 temperature sensor](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)
 + 1602 LCD for displaying the information
@@ -25,7 +27,7 @@ I write the code in C++ and use ESP32 Arduino-framework as a base for functional
 + Polling of Dallas DS18B20 for my apartment's temperature
 + Using WiFi to connect to Internet to access OpenWeatherMap via their API to get the weather of my city
 + Displaying all the useful data on the 1602 LCD
-+ Time based on NTP
++ Time-display based on NTP
 + Sending the data over the Internet to [Influxdb](https://www.influxdata.com/)-database. I have a separate [Grafana](https://grafana.com/)-instance that can show graphs of the data on a browser
 
 ## Planned features
