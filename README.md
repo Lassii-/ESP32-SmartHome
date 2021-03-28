@@ -1,5 +1,7 @@
 # ESP32 Smarthome
 
+## Currently on hiatus
+
 Current prototype
 
 ![Image of the project](https://i.imgur.com/s7tQL1k.jpg)
